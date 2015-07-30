@@ -48,7 +48,7 @@ cd $BUILD_DIR
 ../fetchurl "http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2"
 ../fetchurl "http://webm.googlecode.com/files/libvpx-v1.3.0.tar.bz2"
 ../fetchurl "http://downloads.sourceforge.net/project/faac/faac-src/faac-1.28/faac-1.28.tar.bz2"
-../fetchurl "ftp://ftp.videolan.org/pub/x264/snapshots/last_x264.tar.bz2"
+#../fetchurl "ftp://ftp.videolan.org/pub/x264/snapshots/last_x264.tar.bz2"
 ../fetchurl "http://downloads.xvid.org/downloads/xvidcore-1.3.3.tar.gz"
 ../fetchurl "http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz"
 ../fetchurl "http://downloads.xiph.org/releases/opus/opus-1.1.tar.gz"
@@ -113,6 +113,7 @@ make -j $jval
 make install
 
 echo "*** Building x264 ***"
+git clone git://git.videolan.org/x264.git $BUILD_DIR/x264
 cd $BUILD_DIR/x264*
 ./configure --prefix=$TARGET_DIR --enable-static --disable-shared --disable-opencl
 make -j $jval
